@@ -460,16 +460,16 @@ body.menu-open .menu-backdrop { opacity: 1; pointer-events: auto; }
 }
 .hero-photo-card {
   position: relative;
-  width: clamp(176px, 15vw, 216px);
+  width: clamp(210px, 17vw, 264px);
   border: 1px solid rgba(244, 244, 242, .55);
   overflow: hidden;
 }
 .hero-photo-card img {
   display: block;
   width: 100%;
-  aspect-ratio: 10 / 7;
+  aspect-ratio: 5 / 6;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center 15%;
   filter: saturate(.82) contrast(1.02);
 }
 .hero-photo-card::after {
@@ -480,14 +480,13 @@ body.menu-open .menu-backdrop { opacity: 1; pointer-events: auto; }
   background: repeating-linear-gradient(0deg, rgba(8, 8, 10, .09) 0 1px, transparent 1px 3px);
 }
 .photo-tag {
-  position: absolute;
-  left: 8px;
-  bottom: 8px;
-  z-index: 1;
-  display: inline-flex;
+  position: static;
+  display: flex;
   gap: 6px;
   align-items: center;
-  padding: 4px 8px;
+  justify-content: center;
+  padding: 6px 8px;
+  border-top: 1px solid rgba(244, 244, 242, .55);
   background: #050506;
   color: var(--white);
   font: 9px var(--mono);
@@ -1020,7 +1019,7 @@ blockquote {
   .project-proof { grid-column: 1; }
   .fit-grid article { grid-template-columns: 1fr; gap: .6rem; }
   .big-statement { font-size: clamp(1.4rem, 6.4vw, 1.8rem); }
-  .hero-photo-card { width: 158px; }
+  .hero-photo-card { width: clamp(180px, 46vw, 220px); }
   .fm { font-size: clamp(84px, 24vw, 160px); }
 }
 
@@ -1210,4 +1209,123 @@ body {
 @media (max-width: 860px) {
   .case-gallery { grid-template-columns: 1fr; }
   .video-proof video { max-height: 70vh; width: auto; max-width: 100%; margin: 0 auto; }
+}
+
+/* ============================================================
+   联系卡片：期待与您进一步交流
+   ============================================================ */
+.contact-card {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding: clamp(1.8rem, 4vw, 3rem);
+}
+.contact-card h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  font-weight: 500;
+  letter-spacing: -.01em;
+}
+.contact-sub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .6rem;
+  margin: 1rem 0 0;
+  font: 11px var(--mono);
+  letter-spacing: .12em;
+  opacity: .75;
+}
+.contact-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--green);
+  opacity: 1;
+}
+.contact-status .dot {
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--rec-glow);
+}
+.contact-list {
+  list-style: none;
+  margin: clamp(1.6rem, 3vw, 2.4rem) 0 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(.9rem, 1.8vw, 1.3rem);
+}
+.contact-list li {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px dashed rgba(244, 244, 242, .25);
+}
+.cl-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(244, 244, 242, .35);
+  border-radius: 50%;
+  opacity: .85;
+}
+.cl-icon svg { width: 16px; height: 16px; }
+.cl-body { display: grid; gap: 3px; }
+.cl-body small { font: 10px var(--mono); letter-spacing: .14em; opacity: .55; }
+.cl-body strong {
+  font-size: clamp(.95rem, 1.6vw, 1.1rem);
+  font-weight: 500;
+  letter-spacing: .02em;
+}
+.city-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px; }
+.city-pill {
+  padding: 4px 12px;
+  border: 1px solid rgba(244, 244, 242, .4);
+  border-radius: 999px;
+  font: 11px var(--mono);
+  letter-spacing: .1em;
+}
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: clamp(1.6rem, 3vw, 2.4rem);
+}
+.btn-ghost { background: transparent; border: 1px solid rgba(244, 244, 242, .45); color: var(--white); }
+.btn-ghost::before { background: var(--white); }
+.zone-dark .btn-ghost:hover, .contact .btn-ghost:hover { color: var(--ink); }
+
+.contact-qr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: clamp(1rem, 2vw, 1.6rem);
+  border: 1px solid rgba(244, 244, 242, .35);
+  border-radius: var(--radius);
+  background: #f4f4f2;
+}
+.contact-qr img {
+  width: min(100%, 230px);
+  height: auto;
+  display: block;
+}
+.qr-caption {
+  margin: 0;
+  color: #111;
+  font: 10px var(--mono);
+  letter-spacing: .12em;
+  opacity: .7;
+}
+
+@media (max-width: 860px) {
+  .contact-card { grid-template-columns: 1fr; }
+  .contact-qr { order: -1; }
+  .contact-qr img { width: min(60%, 210px); }
 }
