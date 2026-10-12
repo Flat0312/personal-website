@@ -1329,3 +1329,19 @@ body {
   .contact-qr { order: -1; }
   .contact-qr img { width: min(60%, 210px); }
 }
+
+/* ---- 小程序码扫码入口 ---- */
+.suncode-entry { align-items: center; gap: 12px; margin-top: 1.3rem; }
+.suncode-thumb {
+  display: block;
+  width: 68px;
+  height: 68px;
+  padding: 5px;
+  background: #f4f4f2;
+  border: 1px solid rgba(244, 244, 242, .35);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.suncode-thumb img { display: block; width: 100%; height: 100%; }
+.suncode-hint { font: 10px var(--mono); letter-spacing: .12em; opacity: .7; line-height: 1.7; }
+.suncode-hint strong { display: block; color: var(--white); opacity: 1; font-weight: 600; }
